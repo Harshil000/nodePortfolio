@@ -1,13 +1,13 @@
-import dns from 'dns';
-dns.setDefaultResultOrder('ipv4first');
-
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
 
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
     auth: {
         type: 'OAuth2',
         user: process.env.GOOGLE_USER,
